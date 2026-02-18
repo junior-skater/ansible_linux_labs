@@ -1,0 +1,24 @@
+- name: creating container config
+  hosts: rhel9
+  gather_facts: false
+  tasks:
+#---------------------------------------------------------------------------
+    - name: "pull app from repo"
+     ansible.builtin.git:
+       repo: https://github.com/junior-skater/ocp-workshop-ci.git
+       dest: /home/ipexdr/web-app
+#---------------------------------------------------------------------------
+   - name: "copy app to container path"
+     ansible.builtin.copy:
+       src: /home/ipexdr/web-app/ocp-workshop-ci/index.html
+       dest: /home/ipexdr/container/index.html   
+#-----------------------------------------------------------------------------
+   - name: creating container
+     containers.podman.podman_container:
+       name: Workshop
+       image: registry.redhat.io/rhel8/httpd-24
+       state: started
+       volumes:
+        - "/home/ipexdr/container:/var/www/html" 
+       publish:
+        - '8080:8080'
