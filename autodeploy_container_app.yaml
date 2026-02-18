@@ -15,7 +15,8 @@
     - name: "copy app to container path"
       ansible.builtin.copy:
         src: /home/ipexdr/web-app/ocp-workshop-ci/index.html
-        dest: /home/ipexdr/container/index.html   
+        dest: /home/ipexdr/container/index.html
+        remote_src: yes   
 #-----------------------------------------------------------------------------
     - name: creating container
       containers.podman.podman_container:
