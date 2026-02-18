@@ -7,7 +7,7 @@
       ansible.builtin.git:
         repo: "https://github.com/junior-skater/ocp-workshop-ci.git"
         dest: /home/ipexdr/web-app
-        version: main
+        version: master
         force: yes
         clone: yes
         update: yes
