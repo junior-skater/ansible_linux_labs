@@ -7,7 +7,8 @@
       ansible.builtin.git:
         repo: https://github.com/junior-skater/ocp-workshop-ci.git
         dest: /home/ipexdr/web-app
-        version: main
+          #version: main
+        force: yes
 #---------------------------------------------------------------------------
     - name: "copy app to container path"
       ansible.builtin.copy:
