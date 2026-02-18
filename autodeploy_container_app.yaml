@@ -5,12 +5,12 @@
 #---------------------------------------------------------------------------
     - name: "pull app from repo"
       ansible.builtin.git:
-        repo: https://github.com/junior-skater/ocp-workshop-ci.git
+        repo: "https://github.com/junior-skater/ocp-workshop-ci.git"
         dest: /home/ipexdr/web-app
         version: main
         force: yes
         clone: yes
-        update: no
+        update: yes
 #---------------------------------------------------------------------------
     - name: "copy app to container path"
       ansible.builtin.copy:
