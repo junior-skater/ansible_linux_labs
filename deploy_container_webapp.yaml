@@ -1,0 +1,13 @@
+- name: creating container config
+  hosts: rhel9
+  gather_facts: false
+  tasks:
+    - name: creating container
+      containers.podman.podman_container:
+        name: Workshop
+        image: registry.redhat.io/rhel8/httpd-24
+        state: started
+        volumes:
+         - "/home/ipexdr/container:/var/www/html" 
+        publish:
+         - '8080:8080'
