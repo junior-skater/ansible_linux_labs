@@ -4,11 +4,10 @@
   tasks:
    - name: creating container
      containers.podman.podman_container:
-       name: Workshop
+       name: Maintenance_page
        image: registry.redhat.io/rhel8/httpd-24
        state: started
        volumes:
-         #- "/var/www/html:/var/www/html" 
-        - "/home/ipexdr/container:/var/www/html" 
+        - "/home/ipexdr/container2:/var/www/html" 
        publish:
-        - '8080:8080'
+        - '8090:8080'
