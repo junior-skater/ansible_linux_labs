@@ -1,0 +1,13 @@
+- name: creating container config
+  hosts: rhel9
+  gather_facts: false
+  tasks:
+
+    - name: "pull app from repo"
+      ansible.builtin.git:
+        repo: "https://github.com/junior-skater/ocp-workshop-ci.git"
+        dest: /home/ipexdr/web-app
+        version: master
+        force: yes
+        clone: yes
+        update: yes

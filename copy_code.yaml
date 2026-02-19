@@ -1,0 +1,11 @@
+- name: creating container config
+  hosts: rhel9
+  gather_facts: false
+  tasks:
+
+    - name: "copy app to container path"
+      ansible.builtin.copy:
+        src: /home/ipexdr/web-app/index.html
+        dest: /home/ipexdr/container/index.html
+        remote_src: yes
+
